@@ -87,7 +87,7 @@ function M.register_sources(configs, method)
         compat_opts.args = nil
       end
 
-      local opts = vim.tbl_deep_extend("keep", { command = command }, compat_opts)
+      local opts = vim.tbl_deep_extend("keep", compat_opts, { command = command })
       Log:debug("Registering source " .. name)
       Log:trace(vim.inspect(opts))
       table.insert(sources, source.with(opts))
